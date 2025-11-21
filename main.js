@@ -147,14 +147,22 @@ function setupDropdown() {
 
   if (!categoryToggle || !dropdownMenu) return;
 
+  // 🔹 Make sure it starts CLOSED
+  dropdownMenu.classList.remove('open');
+  dropdownMenu.style.display = 'none';
+
+  // 🔹 Open/close when clicking "Categories"
   categoryToggle.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
-    const isOpen = !dropdownMenu.classList.contains('open');
-    dropdownMenu.classList.toggle('open', isOpen);
-    dropdownMenu.style.display = isOpen ? 'block' : 'none';
+
+    const willOpen = !dropdownMenu.classList.contains('open');
+
+    dropdownMenu.classList.toggle('open', willOpen);
+    dropdownMenu.style.display = willOpen ? 'block' : 'none';
   });
 
+  // 🔹 Close when clicking anywhere else
   document.addEventListener('click', function (e) {
     if (!dropdownMenu.contains(e.target) && !categoryToggle.contains(e.target)) {
       dropdownMenu.classList.remove('open');
