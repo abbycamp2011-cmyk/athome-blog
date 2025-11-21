@@ -124,7 +124,8 @@ body {
     z-index: 100;
 }
 
-.dropdown:hover .dropdown-menu {
+/* 🔹 only show when JS adds .open */
+.dropdown-menu.open {
     display: block;
 }
 
@@ -143,11 +144,7 @@ body {
     text-transform: none;
     letter-spacing: 0;
     font-weight: 400;
-}
-
-.dropdown-menu a:hover {
-    background-color: var(--light-bg);
-    color: var(--secondary-color);
+    
 }
 
 /* Hero Section */
